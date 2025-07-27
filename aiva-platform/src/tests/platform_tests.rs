@@ -192,9 +192,7 @@ async fn test_vm_lifecycle() -> Result<()> {
             assert!(output.contains("Hello from VM") || output.contains("Hello"));
         }
         Err(e) => {
-            eprintln!(
-                "Command execution failed (expected in test environment): {e}"
-            );
+            eprintln!("Command execution failed (expected in test environment): {e}");
         }
     }
 
