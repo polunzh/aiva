@@ -1,0 +1,22 @@
+/target
+.vscode
+
+# Test binaries
+**/aiva_test
+**/test_raw_string
+*.test
+
+# Platform-specific
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+*.bak
+*~

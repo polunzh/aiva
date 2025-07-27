@@ -1,0 +1,22 @@
+[package]
+name = "aiva-network"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Network management for AIVA microVMs"
+
+[dependencies]
+aiva-core = { path = "../aiva-core" }
+
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+async-trait = { workspace = true }
+ipnetwork = "0.21"
+pnet = "0.35"
+libc = "0.2"

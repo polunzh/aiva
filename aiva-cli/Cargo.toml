@@ -1,0 +1,36 @@
+[package]
+name = "aiva-cli"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Command-line interface for AIVA microVM management"
+
+[[bin]]
+name = "aiva"
+path = "src/main.rs"
+
+[dependencies]
+aiva-core = { path = "../aiva-core" }
+aiva-platform = { path = "../aiva-platform" }
+aiva-network = { path = "../aiva-network" }
+aiva-storage = { path = "../aiva-storage" }
+aiva-security = { path = "../aiva-security" }
+
+tokio = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+directories = "5.0"
+colored = "2.1"
+indicatif = "0.17"
+dialoguer = "0.11"
+tabled = "0.16"
+dirs = "5.0"

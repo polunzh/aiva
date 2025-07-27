@@ -1,0 +1,24 @@
+[package]
+name = "aiva-security"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Security and isolation features for AIVA"
+
+[dependencies]
+aiva-core = { path = "../aiva-core" }
+
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+async-trait = { workspace = true }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+nix = { version = "0.29", features = ["process", "signal", "user"] }
+seccompiler = "0.4"
+caps = "0.5"

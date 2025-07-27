@@ -1,0 +1,52 @@
+# Custom Lima configuration with different settings
+# This is for testing the --lima-config parameter
+
+cpus: 8
+memory: 16GiB
+disk: 200GiB
+
+images:
+  - location: "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-arm64.img"
+    arch: "aarch64"
+  - location: "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.img"
+    arch: "x86_64"
+
+mounts:
+  - location: "~/.aiva/shared"
+    writable: true
+  - location: "/tmp/lima"
+    writable: true
+
+# Even more ports for testing
+portForwards:
+  - guestPortRange: [3000, 3500]
+    hostPortRange: [3000, 3500]
+    hostIP: "127.0.0.1"
+
+containerd:
+  system: false
+  user: false
+
+provision:
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux
+
+      echo "Installing CUSTOM Lima configuration with MORE resources..."
+
+      # Update system
+      apt-get update
+      apt-get install -y curl git build-essential python3 python3-pip nodejs npm jq htop
+
+      # Install uv for Python
+      curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      # Create MCP directory
+      mkdir -p /opt/mcp
+      chmod 777 /opt/mcp
+
+      echo "CUSTOM Lima configuration with MORE resources complete!"
+
+ssh:
+  loadDotSSHPubKeys: true
