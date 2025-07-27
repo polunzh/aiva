@@ -32,7 +32,7 @@ impl LinuxPlatform {
         })
     }
 
-    fn check_vsock_support(&self) -> bool {
+    pub fn check_vsock_support(&self) -> bool {
         // Check if vsock kernel module is loaded
         Path::new("/dev/vsock").exists() || Path::new("/dev/vhost-vsock").exists()
     }

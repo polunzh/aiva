@@ -42,7 +42,7 @@ pub fn get_current_platform() -> Result<Arc<dyn Platform>> {
     }
 }
 
-pub fn get_platform_with_config(lima_config: Option<String>) -> Result<Arc<dyn Platform>> {
+pub fn get_platform_with_config(_lima_config: Option<String>) -> Result<Arc<dyn Platform>> {
     #[cfg(target_os = "linux")]
     {
         Ok(Arc::new(LinuxPlatform::new()?))
@@ -50,7 +50,7 @@ pub fn get_platform_with_config(lima_config: Option<String>) -> Result<Arc<dyn P
 
     #[cfg(target_os = "macos")]
     {
-        if let Some(config_path) = lima_config {
+        if let Some(config_path) = _lima_config {
             Ok(Arc::new(MacOSPlatform::with_config(config_path)?))
         } else {
             Ok(Arc::new(MacOSPlatform::new()?))

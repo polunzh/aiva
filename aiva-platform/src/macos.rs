@@ -991,9 +991,9 @@ SCRIPT_EOF
         let metrics = VMMetrics {
             cpu_usage,
             memory_usage: aiva_core::MemoryMetrics {
-                total_mb: (memory_total / 1024 / 1024) as u64,
-                used_mb: (memory_used / 1024 / 1024) as u64,
-                available_mb: ((memory_total - memory_used) / 1024 / 1024) as u64,
+                total_mb: memory_total / 1024 / 1024,
+                used_mb: memory_used / 1024 / 1024,
+                available_mb: (memory_total - memory_used) / 1024 / 1024,
                 cache_mb: 512, // Placeholder - would need specific Lima query
             },
             disk_io: aiva_core::DiskIOMetrics {
